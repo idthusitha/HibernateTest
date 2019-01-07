@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://192.168.1.237:5432/PGDEV</property>
+		<property name="hibernate.connection.username">postgres</property>
+		
+		<property name="hibernate.current_session_context_class">thread</property>
+		<property name="show_sql">true</property>
+		
+		<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+		
+		<!-- 
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		 -->
+		 
+		<!-- For singleton factory -->
+		<!-- <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</property>
+		 -->
+		
+		<!-- enable second level cache and query cache -->
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.use_query_cache">true</property>
+		<property name="net.sf.ehcache.configurationResourceName">com/config/ehcache.xml</property>
+
+		
+		<mapping class="com.pojo.Language" />
+		<mapping class="com.pojo.ReportName" />
+		<mapping class="com.pojo.ReportLabel" />
+		<mapping class="com.pojo.ReportLabelMapping" />
+		
+		<!--
+		<mapping resource="com/hbm/Language.hbm.xml" />
+		<mapping resource="com/hbm/ReportName.hbm.xml" />
+		<mapping resource="com/hbm/ReportLabel.hbm.xml" />
+		<mapping resource="com/hbm/ReportLabelMapping.hbm.xml" />
+ 		-->
+	</session-factory>
+</hibernate-configuration>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?> 
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="rezbase_v3_reports">
+	<class name="com.pojo.ReportName" table="report_name">
+		<cache usage="read-only" />
+		<id name="id" type="java.lang.Integer">
+			<column name="id" sql-type="int4" />
+			<generator class="assigned" />
+		</id>
+		<property name="reportName" type="java.lang.String">
+			<column name="report_name" length="150" sql-type="varchar" />
+		</property>
+
+		<property name="status" type="java.lang.String">
+			<column name="status" length="1" sql-type="varchar" />
+		</property>
+	</class>
+</hibernate-mapping>
